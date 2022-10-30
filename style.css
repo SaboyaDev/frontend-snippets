@@ -40,12 +40,11 @@
 
 /*----------------------------------------------- */
 .media-scroller {
-	--spacer: 2rem; /*Local Variable*/
+	--spacer: 2rem;
 	display: grid;
 	gap: var(--spacer);
 	grid-auto-flow: column;
 	grid-auto-columns: 68%;
-	/* grid-auto-columns: 15rem; */
 	padding: 0 var(--spacer) var(--spacer);
 
 	/* This is the fx */
@@ -53,13 +52,6 @@
 	scroll-snap-type: x-mandatory;
 	overscroll-behavior-inline: contain;
 }
-
-/* @media (min-width: 640px) {
-	.media-scroller {
-		grid-auto-columns: 50%;
-	}
-}
-*/
 @media (min-width: 768px) {
 	.media-scroller {
 		grid-auto-columns: 33.3%;
@@ -68,19 +60,16 @@
 
 /* Component Card */
 .media-element {
-	/* Inner Grid for the card */
 	display: grid;
 	grid-template-rows: min-content;
 	gap: var(--spacer);
-
 	padding: var(--spacer);
 	background-color: var(--surface-2);
 	border-radius: var(--radius-2);
 
+	/* ensure that the snapping centers the image within the carousel */
 	scroll-snap-align: center;
 }
-
-/* if the element has a direct children img */
 .media-element > img {
 	inline-size: 100%; /*Logical property, same as width*/
 
