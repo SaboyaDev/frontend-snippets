@@ -3,3 +3,88 @@
 
 /* optional imports that use the props */
 @import 'https://unpkg.com/open-props/normalize.min.css';
+
+/* We could use a flexbox approach, but it's easier with Grid, it will allow us to have full control from the parent container */
+/*
+
+/* General Styling */
+.container {
+	inline-size: min(100% - 4rem, 70rem);
+	margin-inline: auto;
+}
+.flow {
+	display: grid;
+	gap: var(--size-3);
+}
+
+.page-header {
+	padding-block: var(--size-9);
+	margin-block-end: var(--size-9);
+	background: var(--gradient-16);
+	color: var(--gray-0);
+	box-shadow: var(--shadow-2);
+}
+
+.page-title {
+	font-size: var(--font-size-fluid-3);
+}
+
+.page-subtitle {
+	font-size: var(--font-size-fluid-1);
+}
+
+.section-title {
+	padding-inline-start: var(--size-6);
+	margin-block: var(--size-9) var(--size-3);
+}
+
+/*----------------------------------------------- */
+.media-scroller {
+	--spacer: 2rem; /*Local Variable*/
+	display: grid;
+	gap: var(--spacer);
+	grid-auto-flow: column;
+	grid-auto-columns: 68%;
+	/* grid-auto-columns: 15rem; */
+	padding: 0 var(--spacer) var(--spacer);
+
+	/* This is the fx */
+	overflow-x: auto;
+	scroll-snap-type: x-mandatory;
+	overscroll-behavior-inline: contain;
+}
+
+/* @media (min-width: 640px) {
+	.media-scroller {
+		grid-auto-columns: 50%;
+	}
+}
+*/
+@media (min-width: 768px) {
+	.media-scroller {
+		grid-auto-columns: 33.3%;
+	}
+}
+
+/* Component Card */
+.media-element {
+	/* Inner Grid for the card */
+	display: grid;
+	grid-template-rows: min-content;
+	gap: var(--spacer);
+
+	padding: var(--spacer);
+	background-color: var(--surface-2);
+	border-radius: var(--radius-2);
+
+	scroll-snap-align: center;
+}
+
+/* if the element has a direct children img */
+.media-element > img {
+	inline-size: 100%; /*Logical property, same as width*/
+
+	/* It will change the ratio, and make it fit like background image size cover (crops a bit) */
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
